@@ -4,6 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { assets } from "./../../Assets/assets.js";
@@ -11,7 +12,6 @@ import { useState } from "react";
 
 function Header() {
   const [menu, setMenu] = useState("home");
-
   const handleMenuClick = (menuItem) => {
     setMenu(menuItem);
   };
@@ -19,16 +19,17 @@ function Header() {
   return (
     <AppBar color="transparent" elevation={0} position="static">
       <Toolbar disableGutters>
-        <Grid container spacing={3} sx={{ marginTop: "0px" }}>
+        <Grid container alignItems="center">
           <Grid
-            container
             item
-            xs={2}
-            md={3}
+            xs={6}
+            sm={6}
+            md={4}
             lg={4}
             sx={{
+              display: "flex",
               justifyContent: "center",
-              alignItems: "center",
+              marginTop: "10px",
             }}
           >
             <Typography
@@ -37,33 +38,32 @@ function Header() {
                 fontWeight: 700,
                 fontSize: 34,
                 letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
                 color: "#e1711c",
+                display: { xs: "block", sm: "block" },
+                cursor: "pointer",
               }}
             >
-              <img src={assets.logo} alt="" className="logo" />
+              <img src={assets.logo} alt="Logo" className="logo" />
             </Typography>
           </Grid>
 
           <Grid
-            container
-            direction="row"
-            sx={{
-              justifyContent: "center",
-              alignItems: "center",
-            }}
             item
-            xs={2}
-            md={4}
+            xs={0}
+            sm={4}
+            md={5}
             lg={4}
+            sx={{
+              display: { xs: "none", sm: "none", md: "flex", lg: "flex" },
+              justifyContent: "center",
+            }}
           >
             {["home", "menu", "mobile-app", "contact-us"].map((item) => (
               <Typography
                 key={item}
                 onClick={() => handleMenuClick(item)}
                 sx={{
-                  padding: "10px",
+                  paddingX: "10px",
                   cursor: "pointer",
                   borderBottom: menu === item ? "2px solid #e1711c" : "none",
                 }}
@@ -74,32 +74,49 @@ function Header() {
           </Grid>
 
           <Grid
-            container
-            direction="row"
             item
-            xs={2}
-            md={4}
+            xs={6}
+            sm={6}
+            md={3}
             lg={4}
             sx={{
+              display: "flex",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
-            <SearchIcon sx={{ padding: "12px" }} />
-            <AddShoppingCartIcon sx={{ padding: "12px" }} />
+            <IconButton
+              color="inherit"
+              sx={{
+                display: { xs: "block", sm: "block", md: "flex", lg: "flex" },
+                paddingX: "10px",
+              }}
+            >
+              <SearchIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              sx={{
+                display: { xs: "block", sm: "block", md: "flex", lg: "flex" },
+                paddingX: "10px",
+              }}
+            >
+              <AddShoppingCartIcon />
+            </IconButton>
             <Button
               variant="outlined"
               sx={{
+                display: { xs: "block", sm: "block", md: "flex", lg: "flex" },
                 borderColor: "#e1711c",
                 color: "black",
-                margin: "10px",
                 borderRadius: "20px",
+                marginX: "10px",
                 ":hover": {
                   backgroundColor: "#FFF5EE",
                 },
               }}
             >
-              sign in
+              Sign In
             </Button>
           </Grid>
         </Grid>
