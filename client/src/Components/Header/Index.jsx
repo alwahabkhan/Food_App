@@ -9,9 +9,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { assets } from "./../../Assets/assets.js";
 import { useState } from "react";
+import { Link } from "react-scroll";
+import "@fontsource/outfit";
 
-function Header() {
-  const [menu, setMenu] = useState("home");
+const Header = ({ setShowLogin }) => {
+  const [menu, setMenu] = useState(" ");
+
   const handleMenuClick = (menuItem) => {
     setMenu(menuItem);
   };
@@ -61,14 +64,23 @@ function Header() {
             {["home", "menu", "mobile-app", "contact-us"].map((item) => (
               <Typography
                 key={item}
-                onClick={() => handleMenuClick(item)}
                 sx={{
                   paddingX: "10px",
                   cursor: "pointer",
                   borderBottom: menu === item ? "2px solid #e1711c" : "none",
+                  fontFamily: "Outfit, sans-serif",
                 }}
               >
-                {item.charAt(0).toUpperCase() + item.slice(1).replace("-", " ")}
+                <Link
+                  to={item}
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  onClick={() => handleMenuClick(item)}
+                >
+                  {item.charAt(0).toUpperCase() +
+                    item.slice(1).replace("-", " ")}
+                </Link>
               </Typography>
             ))}
           </Grid>
@@ -104,6 +116,7 @@ function Header() {
               <AddShoppingCartIcon />
             </IconButton>
             <Button
+              onClick={() => setShowLogin(true)}
               variant="outlined"
               sx={{
                 display: { xs: "block", sm: "block", md: "flex", lg: "flex" },
@@ -111,6 +124,7 @@ function Header() {
                 color: "black",
                 borderRadius: "20px",
                 marginX: "10px",
+                fontFamily: "Outfit, sans-serif",
                 ":hover": {
                   backgroundColor: "#FFF5EE",
                 },
@@ -123,6 +137,6 @@ function Header() {
       </Toolbar>
     </AppBar>
   );
-}
+};
 
 export default Header;
