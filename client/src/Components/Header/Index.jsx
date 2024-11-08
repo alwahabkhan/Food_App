@@ -8,16 +8,22 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { assets } from "./../../Assets/assets.js";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-scroll";
 import "@fontsource/outfit";
+import { useNavigate } from "react-router-dom";
+import { StoreContext } from "../../context/StroreContext/Index.jsx";
+import { Box } from "@mui/material";
 
 const Header = ({ setShowLogin }) => {
-  const [menu, setMenu] = useState(" ");
+  const [menu, setMenu] = useState("menu");
 
   const handleMenuClick = (menuItem) => {
     setMenu(menuItem);
   };
+
+  const navigate = useNavigate();
+  const { getTotalCartAmount } = useContext(StoreContext);
 
   return (
     <AppBar color="transparent" elevation={0} position="static">
@@ -46,7 +52,12 @@ const Header = ({ setShowLogin }) => {
                 cursor: "pointer",
               }}
             >
-              <img src={assets.logo} alt="Logo" className="logo" />
+              <img
+                src={assets.logo}
+                alt="Logo"
+                className="logo"
+                onClick={() => navigate("/")}
+              />
             </Typography>
           </Grid>
 
@@ -107,6 +118,7 @@ const Header = ({ setShowLogin }) => {
               <SearchIcon />
             </IconButton>
             <IconButton
+              onClick={(e) => navigate("/cart")}
               color="inherit"
               sx={{
                 display: { xs: "block", sm: "block", md: "flex", lg: "flex" },
@@ -115,6 +127,7 @@ const Header = ({ setShowLogin }) => {
             >
               <AddShoppingCartIcon />
             </IconButton>
+            <div className={getTotalCartAmount() === 0 ? " " : "*"}></div>
             <Button
               onClick={() => setShowLogin(true)}
               variant="outlined"
