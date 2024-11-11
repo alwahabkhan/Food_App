@@ -29,6 +29,10 @@ const Index = () => {
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
       <Header setShowLogin={setShowLogin} />
       <Grid
+        xs="10"
+        sm="10"
+        md="10"
+        lg="10"
         sx={{
           marginTop: "50px",
         }}
@@ -39,37 +43,85 @@ const Index = () => {
               <TableRow>
                 <TableCell
                   align="left"
-                  sx={{ fontFamily: "Outfit, sans-serif", fontSize: "16px" }}
+                  sx={{
+                    fontFamily: "Outfit, sans-serif",
+                    fontSize: {
+                      xs: "10px",
+                      sm: "12px",
+                      md: "14px",
+                      lg: "16px",
+                    },
+                  }}
                 >
                   Items
                 </TableCell>
                 <TableCell
                   align="left"
-                  sx={{ fontFamily: "Outfit, sans-serif", fontSize: "16px" }}
+                  sx={{
+                    fontFamily: "Outfit, sans-serif",
+                    fontSize: {
+                      xs: "10px",
+                      sm: "12px",
+                      md: "14px",
+                      lg: "16px",
+                    },
+                  }}
                 >
                   Title
                 </TableCell>
                 <TableCell
                   align="left"
-                  sx={{ fontFamily: "Outfit, sans-serif", fontSize: "16px" }}
+                  sx={{
+                    fontFamily: "Outfit, sans-serif",
+                    fontSize: {
+                      xs: "10px",
+                      sm: "12px",
+                      md: "14px",
+                      lg: "16px",
+                    },
+                  }}
                 >
                   Price
                 </TableCell>
                 <TableCell
                   align="left"
-                  sx={{ fontFamily: "Outfit, sans-serif", fontSize: "16px" }}
+                  sx={{
+                    fontFamily: "Outfit, sans-serif",
+                    fontSize: {
+                      xs: "10px",
+                      sm: "12px",
+                      md: "14px",
+                      lg: "16px",
+                    },
+                  }}
                 >
                   Quantity
                 </TableCell>
                 <TableCell
                   align="left"
-                  sx={{ fontFamily: "Outfit, sans-serif", fontSize: "16px" }}
+                  sx={{
+                    fontFamily: "Outfit, sans-serif",
+                    fontSize: {
+                      xs: "10px",
+                      sm: "12px",
+                      md: "14px",
+                      lg: "16px",
+                    },
+                  }}
                 >
                   Total
                 </TableCell>
                 <TableCell
                   align="center"
-                  sx={{ fontFamily: "Outfit, sans-serif", fontSize: "16px" }}
+                  sx={{
+                    fontFamily: "Outfit, sans-serif",
+                    fontSize: {
+                      xs: "10px",
+                      sm: "12px",
+                      md: "14px",
+                      lg: "16px",
+                    },
+                  }}
                 >
                   Remove
                 </TableCell>
@@ -96,7 +148,12 @@ const Index = () => {
                         align="left"
                         sx={{
                           fontFamily: "Outfit, sans-serif",
-                          fontSize: "16px",
+                          fontSize: {
+                            xs: "10px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "16px",
+                          },
                         }}
                       >
                         {item.name}
@@ -105,7 +162,12 @@ const Index = () => {
                         align="left"
                         sx={{
                           fontFamily: "Outfit, sans-serif",
-                          fontSize: "16px",
+                          fontSize: {
+                            xs: "10px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "16px",
+                          },
                         }}
                       >
                         ${item.price}
@@ -114,7 +176,12 @@ const Index = () => {
                         align="left"
                         sx={{
                           fontFamily: "Outfit, sans-serif",
-                          fontSize: "16px",
+                          fontSize: {
+                            xs: "10px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "16px",
+                          },
                         }}
                       >
                         {cartItems[item._id]}
@@ -123,7 +190,12 @@ const Index = () => {
                         align="left"
                         sx={{
                           fontFamily: "Outfit, sans-serif",
-                          fontSize: "16px",
+                          fontSize: {
+                            xs: "10px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "16px",
+                          },
                         }}
                       >
                         ${item.price * cartItems[item._id]}
@@ -134,7 +206,12 @@ const Index = () => {
                           sx={{
                             cursor: "pointer",
                             fontFamily: "Outfit, sans-serif",
-                            fontSize: "16px",
+                            fontSize: {
+                              xs: "10px",
+                              sm: "12px",
+                              md: "14px",
+                              lg: "16px",
+                            },
                           }}
                         >
                           X
@@ -152,11 +229,16 @@ const Index = () => {
         sx={{
           minWidth: "80%",
           marginTop: "50px",
-          display: "flex",
+          display: { xs: "block", sm: "block", md: "flex", lg: "flex" },
           gap: "200px",
+          justifyContent: "center",
         }}
       >
         <Grid
+          xs="10"
+          sm="10"
+          md="5"
+          lg="5"
           sx={{
             minWidth: "40%",
           }}
@@ -224,6 +306,10 @@ const Index = () => {
           </TableContainer>
         </Grid>
         <Grid
+          xs="10"
+          sm="10"
+          md="5"
+          lg="5"
           sx={{
             minWidth: "40%",
           }}

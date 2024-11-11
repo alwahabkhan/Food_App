@@ -62,7 +62,7 @@ const Index = ({ setShowLogin }) => {
               margin="normal"
               fullWidth
               id="name"
-              label="Enter Your Name"
+              placeholder="Enter Your Name"
               name="name"
               size="small"
               autoFocus
@@ -75,6 +75,11 @@ const Index = ({ setShowLogin }) => {
                   fontFamily: "'Outfit', sans-serif",
                   fontSize: "12px",
                 },
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: "tomato",
+                  },
+                },
               }}
             />
           )}
@@ -85,7 +90,7 @@ const Index = ({ setShowLogin }) => {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              placeholder="Email Address"
               name="email"
               autoComplete="email"
               size="small"
@@ -99,6 +104,14 @@ const Index = ({ setShowLogin }) => {
                   fontFamily: "'Outfit', sans-serif",
                   fontSize: "12px",
                 },
+                "&.Mui-focused fieldset": {
+                  borderColor: "tomato",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: "tomato",
+                  },
+                },
               }}
             />
             <br />
@@ -108,7 +121,7 @@ const Index = ({ setShowLogin }) => {
               required
               fullWidth
               name="password"
-              label="Password"
+              placeholder="Password"
               type="password"
               id="password"
               size="small"
@@ -121,6 +134,14 @@ const Index = ({ setShowLogin }) => {
                 "& .MuiInputLabel-root": {
                   fontFamily: "'Outfit', sans-serif",
                   fontSize: "12px",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "tomato",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: "tomato",
+                  },
                 },
               }}
             />

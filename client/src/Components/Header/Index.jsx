@@ -19,6 +19,9 @@ const Header = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("menu");
 
   const handleMenuClick = (menuItem) => {
+    if (menuItem === "home") {
+      navigate("/");
+    }
     setMenu(menuItem);
   };
 
@@ -83,7 +86,7 @@ const Header = ({ setShowLogin }) => {
                 }}
               >
                 <Link
-                  to={item}
+                  to={item === "home" ? "/" : item}
                   spy={true}
                   smooth={true}
                   duration={500}
