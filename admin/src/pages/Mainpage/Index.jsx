@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import Navbar from "../../components/Navbar/Index.jsx";
 import SideBar from "../../components/Sidebar/Index.jsx";
+import "@fontsource/outfit";
 
 const drawerWidth = 240;
 
@@ -26,14 +27,16 @@ function Index() {
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           mt: "80px",
+
+          justifyItems: "center",
         }}
       >
         <Toolbar />
         <Box
           sx={{
             border: "1px solid tomato",
-            padding: "20px",
-            maxWidth: "400px",
+            padding: "25px",
+            maxWidth: "350px",
             borderRadius: "10px",
           }}
         >
@@ -41,11 +44,9 @@ function Index() {
             <Typography
               variant="h5"
               gutterBottom
-              sx={{
-                textAlign: "center",
-              }}
+              sx={{ fontFamily: "'Outfit', sans-serif", marginBottom: "20px" }}
             >
-              Login
+              <strong> Login </strong>
             </Typography>
             <TextField
               name="email"
@@ -55,7 +56,25 @@ function Index() {
               variant="outlined"
               size="small"
               fullWidth
-              sx={{ mb: 2 }}
+              sx={{
+                "& .MuiInputBase-input": {
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: "14px",
+                },
+                "& .MuiInputLabel-root": {
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: "14px",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "tomato",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: "tomato",
+                  },
+                },
+                marginBottom: "20px",
+              }}
             />
             <TextField
               name="password"
@@ -66,14 +85,34 @@ function Index() {
               size="small"
               fullWidth
               sx={{
-                marginBottom: "10px",
+                "& .MuiInputBase-input": {
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: "14px",
+                },
+                "& .MuiInputLabel-root": {
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: "14px",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "tomato",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: "tomato",
+                  },
+                },
+                marginBottom: "20px",
               }}
             />
             <Button
+              type="submit"
+              fullWidth
+              variant="contained"
               sx={{
-                width: "100%",
-                backgroundColor: "tomato",
-                color: "white",
+                backgroundColor: "#e1711c",
+                fontSize: "12px",
+                fontFamily: "'Outfit', sans-serif",
+                marginBottom: "10px",
               }}
             >
               Login

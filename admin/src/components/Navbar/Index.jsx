@@ -2,6 +2,7 @@ import React from "react";
 import { AppBar, Toolbar, Grid, IconButton, Typography } from "@mui/material";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import { assets } from "../../assets/assets.js";
+import "@fontsource/outfit";
 
 const Navbar = () => {
   return (
@@ -21,7 +22,12 @@ const Navbar = () => {
           </Grid>
 
           <Grid item xs={4} sx={{ display: "flex", justifyContent: "center" }}>
-            <Typography variant="h6">Login</Typography>
+            <Typography
+              variant="h6"
+              sx={{ fontFamily: "'Outfit', sans-serif" }}
+            >
+              Admin
+            </Typography>
           </Grid>
 
           <Grid
@@ -34,7 +40,11 @@ const Navbar = () => {
             }}
           >
             <IconButton color="inherit">
-              <AdminPanelSettingsIcon />
+              <img
+                src={assets.profile_image}
+                alt="Logo"
+                style={{ width: "40px" }}
+              />
             </IconButton>
           </Grid>
         </Grid>
