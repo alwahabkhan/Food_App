@@ -12,7 +12,8 @@ import "@fontsource/outfit";
 import { StoreContext } from "../../context/StroreContext/Index";
 
 const Index = ({ id, name, price, description, image }) => {
-  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  const { cartItems, addToCart, removeFromCart, url } =
+    useContext(StoreContext);
   return (
     <Card
       sx={{
@@ -27,7 +28,7 @@ const Index = ({ id, name, price, description, image }) => {
         <CardMedia
           component="img"
           height="210"
-          image={image}
+          image={url + "/images/" + image}
           alt="food-image"
           sx={{ borderRadius: "15px 15px 0 0" }}
         />

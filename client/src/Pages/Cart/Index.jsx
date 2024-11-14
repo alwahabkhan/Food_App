@@ -14,7 +14,7 @@ import { Button } from "react-scroll";
 import { useNavigate } from "react-router";
 
 const Index = () => {
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount } =
+  const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } =
     useContext(StoreContext);
   const [showLogin, setShowLogin] = useState(false);
   const navigate = useNavigate();
@@ -139,7 +139,7 @@ const Index = () => {
                     >
                       <TableCell component="th" scope="row">
                         <img
-                          src={item.image}
+                          src={url + "/images/" + item.image}
                           alt={item.name}
                           style={{ width: "50px" }}
                         />

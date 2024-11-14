@@ -13,10 +13,11 @@ import { Link } from "react-scroll";
 import "@fontsource/outfit";
 import { useNavigate } from "react-router-dom";
 import { StoreContext } from "../../context/StroreContext/Index.jsx";
-import { Box } from "@mui/material";
+import { Box, Divider, Drawer } from "@mui/material";
 
 const Header = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("menu");
+  const [showMenu, setShowMenu] = useState(false);
 
   const handleMenuClick = (menuItem) => {
     if (menuItem === "home") {
@@ -26,7 +27,13 @@ const Header = ({ setShowLogin }) => {
   };
 
   const navigate = useNavigate();
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/");
+  };
 
   return (
     <AppBar color="transparent" elevation={0} position="static">
@@ -131,23 +138,116 @@ const Header = ({ setShowLogin }) => {
               <AddShoppingCartIcon />
             </IconButton>
             <div className={getTotalCartAmount() === 0 ? " " : "*"}></div>
-            <Button
-              onClick={() => setShowLogin(true)}
-              variant="outlined"
-              sx={{
-                display: { xs: "block", sm: "block", md: "flex", lg: "flex" },
-                borderColor: "#e1711c",
-                color: "black",
-                borderRadius: "20px",
-                marginX: "10px",
-                fontFamily: "Outfit, sans-serif",
-                ":hover": {
-                  backgroundColor: "#FFF5EE",
-                },
-              }}
-            >
-              Sign In
-            </Button>
+
+            {!token ? (
+              <Button
+                onClick={() => setShowLogin(true)}
+                variant="outlined"
+                sx={{
+                  display: { xs: "block", sm: "block", md: "flex", lg: "flex" },
+                  borderColor: "#e1711c",
+                  color: "black",
+                  borderRadius: "20px",
+                  marginX: "10px",
+                  fontFamily: "Outfit, sans-serif",
+                  ":hover": {
+                    backgroundColor: "#FFF5EE",
+                  },
+                }}
+              >
+                Sign In
+              </Button>
+            ) : (
+              <Box
+                sx={{
+                  position: "relative",
+                }}
+              >
+                <img
+                  src={assets.profile_icon}
+                  alt=""
+                  style={{
+                    width: "20px",
+                    marginLeft: "10px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setShowMenu(!showMenu)}
+                />
+                {showMenu && (
+                  <ul
+                    style={{
+                      position: "absolute",
+                      right: 0,
+                      zIndex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "10px",
+                      backgroundColor: "#fff2ef",
+                      padding: "12px 25px",
+                      borderRadius: "4px",
+                      border: "1px solid tomato",
+                      outline: "2px solid white",
+                      listStyle: "none",
+                    }}
+                  >
+                    <li
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <img
+                        src={assets.bag_icon}
+                        alt="Orders"
+                        style={{
+                          width: "20px",
+                        }}
+                      />
+                      <Typography
+                        sx={{
+                          fontFamily: "Outfit",
+                          ":hover": {
+                            color: "tomato",
+                          },
+                        }}
+                      >
+                        Orders
+                      </Typography>
+                    </li>
+                    <Divider />
+                    <li
+                      onClick={logout}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <img
+                        src={assets.logout_icon}
+                        alt="Logout"
+                        style={{
+                          width: "20px",
+                        }}
+                      />
+                      <Typography
+                        sx={{
+                          fontFamily: "Outfit",
+                          ":hover": {
+                            color: "tomato",
+                          },
+                        }}
+                      >
+                        Logout
+                      </Typography>
+                    </li>
+                  </ul>
+                )}
+              </Box>
+            )}
           </Grid>
         </Grid>
       </Toolbar>
