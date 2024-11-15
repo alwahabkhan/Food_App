@@ -29,6 +29,7 @@ const orderSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  status: { type: String, required: true, default: "Pending" },
 });
 
 const orderModel =

@@ -191,6 +191,7 @@ const Header = ({ setShowLogin }) => {
                     }}
                   >
                     <li
+                      onClick={() => navigate("/myorders")}
                       style={{
                         display: "flex",
                         alignItems: "center",
