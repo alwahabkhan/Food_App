@@ -63,7 +63,7 @@ const Index = () => {
               <Grid
                 key={index}
                 sx={{
-                  display: "grid",
+                  display: { xs: "block", sm: "block", md: "grid", lg: "grid" },
                   gridTemplateColumns: "0.5fr 2fr 1fr 1fr 2fr 1fr",
                   alignItems: "center",
                   gap: "30px",
@@ -121,7 +121,7 @@ const Index = () => {
                 </Typography>
                 <Button
                   variant="contained"
-                  //   color="success"
+                  onClick={fetchOrders}
                   sx={{
                     fontSize: "12px",
                     backgroundColor: "#ffe1e1",
